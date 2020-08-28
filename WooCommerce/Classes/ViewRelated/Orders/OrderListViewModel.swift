@@ -313,6 +313,10 @@ extension OrderListViewModel {
     func indexOfObject(_ managedObjectID: NSManagedObjectID) -> Int? {
         resultsController.indexOfObject(managedObjectID)
     }
+
+    func nameOfSection(at section: Int) -> String? {
+        resultsController.nameOfSection(at: section)
+    }
 //
 //    /// Converts the `rowIndexPath` to an `index` belonging to `numberOfObjects`.
 //    ///

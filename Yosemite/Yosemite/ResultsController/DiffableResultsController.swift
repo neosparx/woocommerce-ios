@@ -13,9 +13,13 @@ public final class DiffableResultsController: NSObject {
         let sortDescriptor = NSSortDescriptor(keyPath: \StorageOrder.dateCreated, ascending: false)
         let fetchRequest = NSFetchRequest<StorageOrder>(entityName: StorageOrder.entityName)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        let resultsController = storage.createFetchedResultsController(fetchRequest: fetchRequest,
-                                                                       sectionNameKeyPath: nil,
-                                                                       cacheName: nil)
+
+        let sectionNameKeyPath = #selector(StorageOrder.normalizedAgeAsString)
+        let resultsController = storage.createFetchedResultsController(
+            fetchRequest: fetchRequest,
+            sectionNameKeyPath: "\(sectionNameKeyPath)",
+            cacheName: nil
+        )
         resultsController.delegate = self
         return resultsController
     }()
@@ -56,6 +60,10 @@ public final class DiffableResultsController: NSObject {
         } else {
             return nil
         }
+    }
+
+    public func nameOfSection(at section: Int) -> String? {
+        wrappedController.sections?[section].name
     }
 }
 

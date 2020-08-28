@@ -510,22 +510,6 @@ private extension OrderListViewController {
 //        cell.layoutIfNeeded()
 //        return cell
 //    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let reuseIdentifier = TwoColumnSectionHeaderView.reuseIdentifier
-//        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) as? TwoColumnSectionHeaderView else {
-//            return nil
-//        }
-//
-//        header.leftText = {
-//            let rawAge = viewModel.sectionInfo(at: section).name
-//            return Age(rawValue: rawAge)?.description
-//        }()
-//        header.rightText = nil
-//
-//        return header
-//    }
-//}
 
 
 // MARK: - UITableViewDelegate Conformance
@@ -568,6 +552,23 @@ extension OrderListViewController: UITableViewDelegate {
         }
 
         syncingCoordinator.ensureNextPageIsSynchronized(lastVisibleIndex: orderIndex)
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let reuseIdentifier = TwoColumnSectionHeaderView.reuseIdentifier
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) as? TwoColumnSectionHeaderView else {
+            return nil
+        }
+
+        header.leftText = {
+            guard let rawAge = viewModel.nameOfSection(at: section) else {
+                return nil
+            }
+            return Age(rawValue: rawAge)?.description
+        }()
+        header.rightText = nil
+
+        return header
     }
 }
 
