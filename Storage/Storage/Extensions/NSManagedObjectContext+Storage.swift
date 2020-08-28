@@ -103,7 +103,15 @@ extension NSManagedObjectContext: StorageType {
     /// Inserts a new Entity. For performance reasons, this helper *DOES NOT* persists the context.
     ///
     public func insertNewObject<T: Object>(ofType type: T.Type) -> T {
-        return NSEntityDescription.insertNewObject(forEntityName: T.entityName, into: self) as! T
+        let managedObject = NSEntityDescription.insertNewObject(forEntityName: T.entityName, into: self)
+
+        do {
+            try obtainPermanentIDs(for: [managedObject])
+        } catch {
+            DDLogError("Failed to obtain permanent NSManagedObjectID for \(T.entityName)")
+        }
+
+        return managedObject as! T
     }
 
     /// Loads a single NSManagedObject instance, given its ObjectID, if available.
