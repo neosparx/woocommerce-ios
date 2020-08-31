@@ -13,4 +13,8 @@ extension UITableViewDiffableDataSource {
     var numberOfItems: Int {
         snapshot().numberOfItems
     }
+
+    func sectionIdentifier(for sectionIndex: Int) -> SectionIdentifierType? {
+        snapshot().sectionIdentifiers[safe: sectionIndex]
+    }
 }

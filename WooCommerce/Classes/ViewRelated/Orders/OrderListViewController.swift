@@ -534,7 +534,7 @@ extension OrderListViewController: UITableViewDelegate {
         }
 
         header.leftText = {
-            guard let sectionIdentifier = dataSource.snapshot().sectionIdentifiers[safe: section] else {
+            guard let sectionIdentifier = dataSource.sectionIdentifier(for: section) else {
                 return nil
             }
 
