@@ -113,7 +113,7 @@ final class OrderListViewModel {
     ///
     func activateAndForwardUpdates(to tableView: UITableView) {
         #warning("remove tableView argument")
-        performFetch()
+        startReceivingSnapshots()
 
         notificationCenter.addObserver(self, selector: #selector(handleAppDeactivation),
                                        name: UIApplication.willResignActiveNotification, object: nil)
@@ -125,9 +125,9 @@ final class OrderListViewModel {
 
     /// Execute the `resultsController` query, logging the error if there's any.
     ///
-    private func performFetch() {
+    private func startReceivingSnapshots() {
         do {
-            try snapshotsProvider.performFetch()
+            try snapshotsProvider.start()
         } catch {
             CrashLogging.logError(error)
         }

@@ -35,7 +35,7 @@ public final class FetchResultSnapshotsProvider: NSObject {
         self.storage = storage
     }
 
-    public func performFetch() throws {
+    public func start() throws {
         try wrappedController.performFetch()
 
         #warning("fix cast")
