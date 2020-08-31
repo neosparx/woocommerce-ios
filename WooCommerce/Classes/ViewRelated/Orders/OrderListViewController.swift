@@ -30,22 +30,8 @@ final class OrderListViewController: UIViewController {
     private lazy var tableView = UITableView(frame: .zero, style: .grouped)
 
     private lazy var dataSource: UITableViewDiffableDataSource<String, NSManagedObjectID> = {
-        let cellProvider: (UITableView, IndexPath, NSManagedObjectID) -> UITableViewCell = { [weak self] tableView, indexPath, managedObjectID in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as? OrderTableViewCell else {
-                #warning("add message :D")
-                fatalError()
-            }
-            guard let self = self else {
-                return cell
-            }
-
-            let detailsViewModel = self.viewModel.detailsViewModel(withID: managedObjectID)
-            let orderStatus = self.lookUpOrderStatus(for: detailsViewModel?.order)
-            cell.configureCell(viewModel: detailsViewModel, orderStatus: orderStatus)
-            cell.layoutIfNeeded()
-            return cell
-        }
-        let dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: self.tableView, cellProvider: cellProvider)
+        let dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: self.tableView,
+                                                                                  cellProvider: self.makeCellProvider())
         dataSource.defaultRowAnimation = .fade
         return dataSource
     }()
@@ -161,6 +147,23 @@ final class OrderListViewController: UIViewController {
         //
         // We can remove this once we've replaced XLPagerTabStrip.
         tableView.reloadData()
+    }
+
+    private func makeCellProvider() -> UITableViewDiffableDataSource<String, NSManagedObjectID>.CellProvider {
+        return { [weak self] tableView, indexPath, managedObjectID in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as? OrderTableViewCell else {
+                fatalError("Failed to create cell \(OrderTableViewCell.reuseIdentifier)")
+            }
+            guard let self = self else {
+                return cell
+            }
+
+            let detailsViewModel = self.viewModel.detailsViewModel(withID: managedObjectID)
+            let orderStatus = self.lookUpOrderStatus(for: detailsViewModel?.order)
+            cell.configureCell(viewModel: detailsViewModel, orderStatus: orderStatus)
+            cell.layoutIfNeeded()
+            return cell
+        }
     }
 }
 
