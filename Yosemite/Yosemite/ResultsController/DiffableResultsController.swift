@@ -81,10 +81,6 @@ public final class DiffableResultsController: NSObject {
             return nil
         }
     }
-
-    public func nameOfSection(at section: Int) -> String? {
-        wrappedController.sections?[section].name
-    }
 }
 
 @available(iOS 13.0, *)

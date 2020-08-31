@@ -304,10 +304,6 @@ extension OrderListViewModel {
 //    }
 //
 
-    func nameOfSection(at section: Int) -> String? {
-        resultsController.nameOfSection(at: section)
-    }
-//
 //    /// Converts the `rowIndexPath` to an `index` belonging to `numberOfObjects`.
 //    ///
 //    func objectIndex(from rowIndexPath: IndexPath) -> Int {

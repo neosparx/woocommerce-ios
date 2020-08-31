@@ -564,10 +564,10 @@ extension OrderListViewController: UITableViewDelegate {
         }
 
         header.leftText = {
-            guard let rawAge = viewModel.nameOfSection(at: section) else {
+            guard let sectionIdentifier = dataSource.snapshot().sectionIdentifiers[safe: section] else {
                 return nil
             }
-            return Age(rawValue: rawAge)?.description
+            return Age(rawValue: sectionIdentifier)?.description
         }()
         header.rightText = nil
 
