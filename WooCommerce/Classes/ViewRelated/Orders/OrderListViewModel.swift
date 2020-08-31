@@ -303,11 +303,6 @@ extension OrderListViewModel {
 //        return OrderDetailsViewModel(order: order)
 //    }
 //
-//    /// The number of DB results
-//    ///
-    var numberOfObjects: Int {
-        resultsController.numberOfObjects
-    }
 
     #warning("replace NSMAnagedObjectID")
     func indexOfObject(_ managedObjectID: NSManagedObjectID) -> Int? {

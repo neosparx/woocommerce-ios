@@ -72,10 +72,6 @@ public final class DiffableResultsController: NSObject {
         }
     }
 
-    public var numberOfObjects: Int {
-        snapshotSubject.value.numberOfItems
-    }
-
     public func indexOfObject(_ managedObjectID: NSManagedObjectID) -> Int? {
         snapshotSubject.value.indexOfItem(managedObjectID)
     }
