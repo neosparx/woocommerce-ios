@@ -527,22 +527,23 @@ extension OrderListViewController: UITableViewDelegate {
             return
         }
 
-//        guard let orderDetailsViewModel = viewModel.detailsViewModel(at: indexPath) else {
-//            return
-//        }
-//
-//        guard let orderDetailsVC = OrderDetailsViewController.instantiatedViewControllerFromStoryboard() else {
-//            assertionFailure("Expected OrderDetailsViewController to be instantiated")
-//            return
-//        }
-//
-//        orderDetailsVC.viewModel = orderDetailsViewModel
-//
-//        let order = orderDetailsViewModel.order
-//        ServiceLocator.analytics.track(.orderOpen, withProperties: ["id": order.orderID,
-//                                                                    "status": order.statusKey])
-//
-//        navigationController?.pushViewController(orderDetailsVC, animated: true)
+        guard let identifier = dataSource.itemIdentifier(for: indexPath),
+            let orderDetailsViewModel = viewModel.detailsViewModel(withID: identifier) else {
+                return
+        }
+
+        guard let orderDetailsVC = OrderDetailsViewController.instantiatedViewControllerFromStoryboard() else {
+            assertionFailure("Expected OrderDetailsViewController to be instantiated")
+            return
+        }
+
+        orderDetailsVC.viewModel = orderDetailsViewModel
+
+        let order = orderDetailsViewModel.order
+        ServiceLocator.analytics.track(.orderOpen, withProperties: ["id": order.orderID,
+                                                                    "status": order.statusKey])
+
+        navigationController?.pushViewController(orderDetailsVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
