@@ -58,12 +58,12 @@ final class OrderListViewModel {
 
     /// Should be bound to the UITableView to auto-update the list of Orders.
     ///
-    private lazy var resultsController: FetchResultSnapshotsProvider = {
+    private lazy var snapshotsProvider: FetchResultSnapshotsProvider = {
         FetchResultSnapshotsProvider(storage: self.storageManager.viewStorage)
     }()
 
     var snapshot: AnyPublisher<NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, Never> {
-        resultsController.snapshot
+        snapshotsProvider.snapshot
     }
 
 //    private lazy var resultsController: ResultsController<StorageOrder> = {
@@ -90,14 +90,6 @@ final class OrderListViewModel {
 //                                               sortedBy: [descriptor])
 //    }()
 //
-    /// Indicates if there are no results.
-    ///
-    var isEmpty: Bool {
-        #warning("fix this")
-        return false
-//        resultsController.isEmpty
-    }
-
     init(storageManager: StorageManagerType = ServiceLocator.storageManager,
          pushNotificationsManager: PushNotesManager = ServiceLocator.pushNotesManager,
          notificationCenter: NotificationCenter = .default,
@@ -135,7 +127,7 @@ final class OrderListViewModel {
     ///
     private func performFetch() {
         do {
-            try resultsController.performFetch()
+            try snapshotsProvider.performFetch()
         } catch {
             CrashLogging.logError(error)
         }
@@ -283,7 +275,7 @@ private extension OrderListViewModel {
 extension OrderListViewModel {
     #warning("replace ManagedObjectID usage")
     func detailsViewModel(withID managedObjectID: NSManagedObjectID) -> OrderDetailsViewModel? {
-        guard let order = resultsController.object(withID: managedObjectID) else {
+        guard let order = snapshotsProvider.object(withID: managedObjectID) else {
             return nil
         }
 
