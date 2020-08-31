@@ -581,14 +581,14 @@ private extension OrderListViewController {
     /// we've got cached results, or not.
     ///
     func transitionToSyncingState() {
-        state = viewModel.isEmpty ? .placeholder : .syncing
+        state = dataSource.isEmpty ? .placeholder : .syncing
     }
 
     /// Should be called whenever the results are updated: after Sync'ing (or after applying a filter).
     /// Transitions to `.results` or `.empty`.
     ///
     func transitionToResultsUpdatedState() {
-        state = viewModel.isEmpty ? .empty : .results
+        state = dataSource.isEmpty ? .empty : .results
     }
 }
 
