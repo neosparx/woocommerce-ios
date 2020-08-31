@@ -290,6 +290,10 @@ extension OrderListViewModel {
         return OrderDetailsViewModel(order: order)
     }
 
+    func sectionTitleFor(sectionIdentifier: String) -> String? {
+        Age(rawValue: sectionIdentifier)?.description
+    }
+
     /// Returns an `OrderListViewModel` instance for the `StorageOrder` at the given `indexPath`.
     ///
     /// TODO Ideally we should have a very tiny ViewModel for the cell instead of

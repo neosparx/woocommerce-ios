@@ -567,7 +567,8 @@ extension OrderListViewController: UITableViewDelegate {
             guard let sectionIdentifier = dataSource.snapshot().sectionIdentifiers[safe: section] else {
                 return nil
             }
-            return Age(rawValue: sectionIdentifier)?.description
+
+            return viewModel.sectionTitleFor(sectionIdentifier: sectionIdentifier)
         }()
         header.rightText = nil
 
