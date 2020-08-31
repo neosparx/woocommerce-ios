@@ -520,15 +520,11 @@ extension OrderListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let managedObjectID = dataSource.itemIdentifier(for: indexPath) else {
+        guard let itemIndex = dataSource.indexOfItem(for: indexPath) else {
             return
         }
 
-        guard let orderIndex = dataSource.snapshot().indexOfItem(managedObjectID) else {
-            return
-        }
-
-        syncingCoordinator.ensureNextPageIsSynchronized(lastVisibleIndex: orderIndex)
+        syncingCoordinator.ensureNextPageIsSynchronized(lastVisibleIndex: itemIndex)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -455,6 +455,7 @@
 		57CB186B24F848D100657C3A /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB186A24F848D100657C3A /* OrderListViewModel.swift */; };
 		57CFCD28248845B4003F51EC /* PrimarySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFCD27248845B4003F51EC /* PrimarySectionHeaderView.swift */; };
 		57CFCD2A2488496F003F51EC /* PrimarySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CFCD292488496F003F51EC /* PrimarySectionHeaderView.xib */; };
+		57E2C8E124FD7CAD004D2A11 /* UITableViewDiffableDataSource+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2C8E024FD7CAD004D2A11 /* UITableViewDiffableDataSource+Helpers.swift */; };
 		57EBC92024EEE61800C1D45B /* WooAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBC91F24EEE61800C1D45B /* WooAnalyticsEvent.swift */; };
 		57F2C6CD246DECC10074063B /* SummaryTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2C6CC246DECC10074063B /* SummaryTableViewCellViewModelTests.swift */; };
 		57F34AA12423D45A00E38AFB /* OrdersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F34AA02423D45A00E38AFB /* OrdersViewModelTests.swift */; };
@@ -1406,6 +1407,7 @@
 		57CB186A24F848D100657C3A /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		57CFCD27248845B4003F51EC /* PrimarySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySectionHeaderView.swift; sourceTree = "<group>"; };
 		57CFCD292488496F003F51EC /* PrimarySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrimarySectionHeaderView.xib; sourceTree = "<group>"; };
+		57E2C8E024FD7CAD004D2A11 /* UITableViewDiffableDataSource+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewDiffableDataSource+Helpers.swift"; sourceTree = "<group>"; };
 		57EBC91F24EEE61800C1D45B /* WooAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WooAnalyticsEvent.swift; sourceTree = "<group>"; };
 		57F2C6CC246DECC10074063B /* SummaryTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		57F34AA02423D45A00E38AFB /* OrdersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModelTests.swift; sourceTree = "<group>"; };
@@ -3955,6 +3957,7 @@
 				57612988245888E2007BB2D9 /* NumberFormatter+LocalizedOrNinetyNinePlus.swift */,
 				02BA12842461674B008D8325 /* Optional+String.swift */,
 				02B8650E24A9E2D800265779 /* Product+SwiftUIPreviewHelpers.swift */,
+				57E2C8E024FD7CAD004D2A11 /* UITableViewDiffableDataSource+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -5383,6 +5386,7 @@
 				CE4DA5CA21DEA78E00074607 /* NSDecimalNumber+Helpers.swift in Sources */,
 				CE5F462A23AACA0A006B1A5C /* RefundDetailsDataSource.swift in Sources */,
 				02162726237963AF000208D2 /* ProductFormViewController.swift in Sources */,
+				57E2C8E124FD7CAD004D2A11 /* UITableViewDiffableDataSource+Helpers.swift in Sources */,
 				4580BA7423F192D400B5F764 /* ProductSettingsViewController.swift in Sources */,
 				020DD49123239DD6005822B1 /* PaginatedListViewControllerStateCoordinator.swift in Sources */,
 				0202B6952387AD1B00F3EBE0 /* UITabBar+Order.swift in Sources */,
