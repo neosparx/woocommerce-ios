@@ -3,7 +3,7 @@ import CoreData
 import Combine
 
 @available(iOS 13.0, *)
-public final class DiffableResultsController: NSObject {
+public final class FetchResultSnapshotsProvider: NSObject {
 
     public typealias Snapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
 
@@ -84,7 +84,7 @@ public final class DiffableResultsController: NSObject {
 }
 
 @available(iOS 13.0, *)
-extension DiffableResultsController: NSFetchedResultsControllerDelegate {
+extension FetchResultSnapshotsProvider: NSFetchedResultsControllerDelegate {
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                            didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         let snapshot = snapshot as Snapshot

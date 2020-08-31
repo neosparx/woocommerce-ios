@@ -58,8 +58,8 @@ final class OrderListViewModel {
 
     /// Should be bound to the UITableView to auto-update the list of Orders.
     ///
-    private lazy var resultsController: DiffableResultsController = {
-        DiffableResultsController(storage: self.storageManager.viewStorage)
+    private lazy var resultsController: FetchResultSnapshotsProvider = {
+        FetchResultSnapshotsProvider(storage: self.storageManager.viewStorage)
     }()
 
     var snapshot: AnyPublisher<NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, Never> {
