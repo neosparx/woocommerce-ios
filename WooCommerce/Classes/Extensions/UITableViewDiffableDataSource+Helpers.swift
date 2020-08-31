@@ -9,4 +9,8 @@ extension UITableViewDiffableDataSource {
 
         return snapshot().indexOfItem(identifier)
     }
+
+    var numberOfItems: Int {
+        snapshot().numberOfItems
+    }
 }

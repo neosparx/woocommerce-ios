@@ -372,7 +372,7 @@ extension OrderListViewController {
             return false
         }
 
-        return highestPageBeingSynced * SyncingCoordinator.Defaults.pageSize > dataSource.snapshot().numberOfItems
+        return highestPageBeingSynced * SyncingCoordinator.Defaults.pageSize > dataSource.numberOfItems
     }
 
     /// Stops animating the Footer Spinner.
