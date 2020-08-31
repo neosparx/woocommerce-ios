@@ -76,12 +76,6 @@ public final class DiffableResultsController: NSObject {
         snapshotSubject.value.numberOfItems
     }
 
-    /// Indicates if there are any Objects matching the specified criteria.
-    ///
-    public var isEmpty: Bool {
-        snapshotSubject.value.numberOfItems == 0
-    }
-
     public func indexOfObject(_ managedObjectID: NSManagedObjectID) -> Int? {
         snapshotSubject.value.indexOfItem(managedObjectID)
     }
