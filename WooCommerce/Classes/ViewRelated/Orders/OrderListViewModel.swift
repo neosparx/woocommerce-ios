@@ -111,8 +111,7 @@ final class OrderListViewModel {
     /// This is the main activation method for this ViewModel. This should only be called once.
     /// And only when the corresponding view was loaded.
     ///
-    func activateAndForwardUpdates(to tableView: UITableView) {
-        #warning("remove tableView argument")
+    func activate() {
         startReceivingSnapshots()
 
         notificationCenter.addObserver(self, selector: #selector(handleAppDeactivation),

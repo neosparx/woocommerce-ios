@@ -183,7 +183,7 @@ private extension OrderListViewController {
             self.syncingCoordinator.resynchronize()
         }
 
-        viewModel.activateAndForwardUpdates(to: tableView)
+        viewModel.activate()
 
         let cancellable = viewModel.snapshot.sink { snapshot in
             self.dataSource.apply(snapshot)
