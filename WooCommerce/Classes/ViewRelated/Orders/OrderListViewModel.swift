@@ -304,11 +304,6 @@ extension OrderListViewModel {
 //    }
 //
 
-    #warning("replace NSMAnagedObjectID")
-    func indexOfObject(_ managedObjectID: NSManagedObjectID) -> Int? {
-        resultsController.indexOfObject(managedObjectID)
-    }
-
     func nameOfSection(at section: Int) -> String? {
         resultsController.nameOfSection(at: section)
     }

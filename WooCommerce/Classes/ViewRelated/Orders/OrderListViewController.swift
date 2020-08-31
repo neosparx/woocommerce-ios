@@ -550,7 +550,7 @@ extension OrderListViewController: UITableViewDelegate {
             return
         }
 
-        guard let orderIndex = viewModel.indexOfObject(managedObjectID) else {
+        guard let orderIndex = dataSource.snapshot().indexOfItem(managedObjectID) else {
             return
         }
 

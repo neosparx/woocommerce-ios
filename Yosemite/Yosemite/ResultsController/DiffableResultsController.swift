@@ -72,10 +72,6 @@ public final class DiffableResultsController: NSObject {
         }
     }
 
-    public func indexOfObject(_ managedObjectID: NSManagedObjectID) -> Int? {
-        snapshotSubject.value.indexOfItem(managedObjectID)
-    }
-
     public func object(withID managedObjectID: NSManagedObjectID) -> Order? {
         #warning("we don't want NSManagedObjectID :D. Fix this later")
         let context = storage as! NSManagedObjectContext
