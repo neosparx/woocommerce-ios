@@ -28,7 +28,11 @@ final class ProductFormViewController<ViewModel: ProductFormViewModelProtocol>: 
     }
 
     private var tableViewModel: ProductFormTableViewModel
-    private var tableViewDataSource: ProductFormTableViewDataSource
+    private var tableViewDataSource: ProductFormTableViewDataSource {
+        didSet {
+            registerTableViewCells()
+        }
+    }
 
     private let productImageActionHandler: ProductImageActionHandler
     private let productUIImageLoader: ProductUIImageLoader
@@ -263,9 +267,6 @@ final class ProductFormViewController<ViewModel: ProductFormViewModelProtocol>: 
                 eventLogger.logPriceSettingsTapped()
                 editPriceSettings()
             case .reviews:
-                guard product.ratingCount > 0 else {
-                    return
-                }
                 ServiceLocator.analytics.track(.productDetailViewReviewsTapped)
                 showReviews()
             case .productType:
@@ -837,7 +838,7 @@ private extension ProductFormViewController {
 //
 private extension ProductFormViewController {
     func showReviews() {
-        guard let product = product as? EditableProductModel, product.product.ratingCount > 0 else {
+        guard let product = product as? EditableProductModel else {
             return
         }
 
