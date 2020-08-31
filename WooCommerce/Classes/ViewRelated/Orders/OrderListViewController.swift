@@ -488,33 +488,6 @@ private extension OrderListViewController {
     }
 }
 
-
-// MARK: - UITableViewDataSource Conformance
-//
-//@available(iOS 13.0, *)
-//extension OrderListViewController: UITableViewDataSource {
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        viewModel.numberOfSections
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        viewModel.numberOfRows(in: section)
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as? OrderTableViewCell else {
-//            fatalError()
-//        }
-//
-//        let detailsViewModel = viewModel.detailsViewModel(at: indexPath)
-//        let orderStatus = lookUpOrderStatus(for: detailsViewModel?.order)
-//        cell.configureCell(viewModel: detailsViewModel, orderStatus: orderStatus)
-//        cell.layoutIfNeeded()
-//        return cell
-//    }
-
-
 // MARK: - UITableViewDelegate Conformance
 //
 @available(iOS 13.0, *)
