@@ -1,7 +1,5 @@
 
 import Combine
-#warning("we should not reference Core Data")
-import CoreData
 
 import Yosemite
 import class AutomatticTracks.CrashLogging
@@ -56,13 +54,11 @@ final class OrderListViewModel {
     ///
     private var isAppActive: Bool = true
 
-    /// Should be bound to the UITableView to auto-update the list of Orders.
-    ///
     private lazy var snapshotsProvider: FetchResultSnapshotsProvider = {
         FetchResultSnapshotsProvider(storage: self.storageManager.viewStorage)
     }()
 
-    var snapshot: AnyPublisher<NSDiffableDataSourceSnapshot<String, NSManagedObjectID>, Never> {
+    var snapshot: AnyPublisher<NSDiffableDataSourceSnapshot<String, FetchResultSnapshotsProvider.ObjectID>, Never> {
         snapshotsProvider.snapshot
     }
 
@@ -272,9 +268,8 @@ private extension OrderListViewModel {
 
 @available(iOS 13.0, *)
 extension OrderListViewModel {
-    #warning("replace ManagedObjectID usage")
-    func detailsViewModel(withID managedObjectID: NSManagedObjectID) -> OrderDetailsViewModel? {
-        guard let order = snapshotsProvider.object(withID: managedObjectID) else {
+    func detailsViewModel(withID objectID: FetchResultSnapshotsProvider.ObjectID) -> OrderDetailsViewModel? {
+        guard let order = snapshotsProvider.object(withID: objectID) else {
             return nil
         }
 

@@ -5,7 +5,8 @@ import Combine
 @available(iOS 13.0, *)
 public final class FetchResultSnapshotsProvider: NSObject {
 
-    public typealias Snapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+    public typealias ObjectID = NSManagedObjectID
+    public typealias Snapshot = NSDiffableDataSourceSnapshot<String, ObjectID>
 
     private let storage: StorageType
 
@@ -72,10 +73,9 @@ public final class FetchResultSnapshotsProvider: NSObject {
         }
     }
 
-    public func object(withID managedObjectID: NSManagedObjectID) -> Order? {
-        #warning("we don't want NSManagedObjectID :D. Fix this later")
+    public func object(withID objectID: ObjectID) -> Order? {
         let context = storage as! NSManagedObjectContext
-        if let storageOrder = try? context.existingObject(with: managedObjectID) as? StorageOrder {
+        if let storageOrder = try? context.existingObject(with: objectID) as? StorageOrder {
             return storageOrder.toReadOnly()
         } else {
             return nil

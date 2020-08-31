@@ -7,8 +7,6 @@ import Gridicons
 import WordPressUI
 
 import Yosemite
-#warning("we should not reference Core DAta")
-import CoreData
 
 // Used for protocol conformance of IndicatorInfoProvider only.
 import XLPagerTabStrip
@@ -29,9 +27,10 @@ final class OrderListViewController: UIViewController {
     ///
     private lazy var tableView = UITableView(frame: .zero, style: .grouped)
 
-    private lazy var dataSource: UITableViewDiffableDataSource<String, NSManagedObjectID> = {
-        let dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: self.tableView,
-                                                                                  cellProvider: self.makeCellProvider())
+    private lazy var dataSource: UITableViewDiffableDataSource<String, FetchResultSnapshotsProvider.ObjectID> = {
+        let dataSource =
+            UITableViewDiffableDataSource<String, FetchResultSnapshotsProvider.ObjectID>(tableView: self.tableView,
+                                                                                         cellProvider: self.makeCellProvider())
         dataSource.defaultRowAnimation = .fade
         return dataSource
     }()
@@ -149,7 +148,7 @@ final class OrderListViewController: UIViewController {
         tableView.reloadData()
     }
 
-    private func makeCellProvider() -> UITableViewDiffableDataSource<String, NSManagedObjectID>.CellProvider {
+    private func makeCellProvider() -> UITableViewDiffableDataSource<String, FetchResultSnapshotsProvider.ObjectID>.CellProvider {
         return { [weak self] tableView, indexPath, managedObjectID in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as? OrderTableViewCell else {
                 fatalError("Failed to create cell \(OrderTableViewCell.reuseIdentifier)")
