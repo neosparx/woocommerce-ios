@@ -276,6 +276,7 @@ iframe
 .PDF_errMain::before,.PDF_err::before,.PDF_noteMain::before
 {
 	font-family:'Font Awesome 5 Free';
+	content:'\f071';
 	margin:0 4px 0 0;
 }
 
