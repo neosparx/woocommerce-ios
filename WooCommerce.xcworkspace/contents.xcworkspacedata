@@ -17,6 +17,9 @@
       location = "group:TestKit">
    </FileRef>
    <FileRef
+      location = "group:Fakes">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
