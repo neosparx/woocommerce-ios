@@ -60,7 +60,6 @@
 		24F98C622502EFF600F49B68 /* feature-flags-load-all.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F98C612502EFF600F49B68 /* feature-flags-load-all.json */; };
 		261870782540A252006522A1 /* ShippingLineTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261870772540A252006522A1 /* ShippingLineTax.swift */; };
 		265BCA02243056E3004E53EE /* categories-all.json in Resources */ = {isa = PBXBuildFile; fileRef = 265BCA01243056E3004E53EE /* categories-all.json */; };
-		265E4B8625534FC7001C2B8B /* Fakes in Frameworks */ = {isa = PBXBuildFile; productRef = 265E4B8525534FC7001C2B8B /* Fakes */; };
 		26615473242D596B00A31661 /* ProductCategoriesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615472242D596B00A31661 /* ProductCategoriesRemote.swift */; };
 		26615475242D7C9500A31661 /* ProductCategoryListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615474242D7C9500A31661 /* ProductCategoryListMapper.swift */; };
 		26615479242DA54D00A31661 /* ProductCategoyListMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615478242DA54D00A31661 /* ProductCategoyListMapperTests.swift */; };
@@ -76,6 +75,9 @@
 		26B2F74924C55ACE0065CCC8 /* LeaderboardsRemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2F74824C55ACE0065CCC8 /* LeaderboardsRemoteTests.swift */; };
 		26B2F74B24C696C00065CCC8 /* LeaderboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2F74A24C696C00065CCC8 /* LeaderboardRow.swift */; };
 		26B2F74D24C696E70065CCC8 /* LeaderboardRowContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B2F74C24C696E70065CCC8 /* LeaderboardRowContent.swift */; };
+		26E83A022554683A00390DD9 /* GeneratedFakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E83A012554683A00390DD9 /* GeneratedFakeable.swift */; };
+		26E83A07255469E000390DD9 /* Fakes.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E83A06255469E000390DD9 /* Fakes.generated.swift */; };
+		26E83A0B25548D8D00390DD9 /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E83A0A25548D8D00390DD9 /* Fake.swift */; };
 		450106852399A7CB00E24722 /* TaxClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450106842399A7CB00E24722 /* TaxClass.swift */; };
 		4501068F2399B19500E24722 /* TaxClassRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4501068E2399B19500E24722 /* TaxClassRemote.swift */; };
 		450106912399B2C800E24722 /* TaxClassListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450106902399B2C800E24722 /* TaxClassListMapper.swift */; };
@@ -445,6 +447,7 @@
 		26B2F74824C55ACE0065CCC8 /* LeaderboardsRemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsRemoteTests.swift; sourceTree = "<group>"; };
 		26B2F74A24C696C00065CCC8 /* LeaderboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRow.swift; sourceTree = "<group>"; };
 		26B2F74C24C696E70065CCC8 /* LeaderboardRowContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRowContent.swift; sourceTree = "<group>"; };
+		26E83A06255469E000390DD9 /* Fakes.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fakes.generated.swift; sourceTree = "<group>"; };
 		450106842399A7CB00E24722 /* TaxClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxClass.swift; sourceTree = "<group>"; };
 		4501068E2399B19500E24722 /* TaxClassRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxClassRemote.swift; sourceTree = "<group>"; };
 		450106902399B2C800E24722 /* TaxClassListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxClassListMapper.swift; sourceTree = "<group>"; };
@@ -762,7 +765,6 @@
 				57150E1524F462E600E81611 /* TestKit in Frameworks */,
 				B557D9ED209753AA005962F4 /* Networking.framework in Frameworks */,
 				21DB5B99C4107CF69C0A57EC /* Pods_NetworkingTests.framework in Frameworks */,
-				265E4B8625534FC7001C2B8B /* Fakes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +778,23 @@
 				020D07B923D8542000FD9580 /* UploadableMedia.swift */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		26E839FE2554680C00390DD9 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				26E83A012554683A00390DD9 /* GeneratedFakeable.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
+		26E83A05255469E000390DD9 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				26E83A06255469E000390DD9 /* Fakes.generated.swift */,
+				26E83A0A25548D8D00390DD9 /* Fake.swift */,
+			);
+			path = Fakes;
 			sourceTree = "<group>";
 		};
 		35C45CCE73A311BE252F6BF4 /* Frameworks */ = {
@@ -957,6 +976,7 @@
 		B557D9E5209753AA005962F4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				26E839FE2554680C00390DD9 /* Fakes */,
 				5726F72C2460A25F0031CAAC /* Copiable */,
 				B5A0369F214C0F4C00774E2C /* Internal */,
 				B5BB1D0A20A204F400112D92 /* Extensions */,
@@ -1049,6 +1069,7 @@
 			isa = PBXGroup;
 			children = (
 				5726F72F2460A83D0031CAAC /* Copiable */,
+				26E83A05255469E000390DD9 /* Fakes */,
 				B50A583A21AD872E00617455 /* Devices */,
 				020D07B623D852AB00FD9580 /* Media */,
 				CE6BFEE62236CF0D005C79FB /* Product */,
@@ -1717,6 +1738,7 @@
 				74046E1F217A6B70007DD7BF /* SiteSettingsMapper.swift in Sources */,
 				26B2F74524C5573F0065CCC8 /* LeaderboardListMapper.swift in Sources */,
 				24F98C542502E8DD00F49B68 /* Bundle+Woo.swift in Sources */,
+				26E83A022554683A00390DD9 /* GeneratedFakeable.swift in Sources */,
 				450106852399A7CB00E24722 /* TaxClass.swift in Sources */,
 				CE12FBD9221F3A6F00C59248 /* OrderStatus.swift in Sources */,
 				7426CA1121AF30BD004E9FFC /* SiteAPIMapper.swift in Sources */,
@@ -1734,6 +1756,7 @@
 				025CA2C4238EBC4300B05C81 /* ProductShippingClassRemote.swift in Sources */,
 				D88D5A4B230BCF0A007B6E01 /* ProductReviewListMapper.swift in Sources */,
 				93D8BBFB226BBC5100AD2EB3 /* AccountSettings.swift in Sources */,
+				26E83A0B25548D8D00390DD9 /* Fake.swift in Sources */,
 				B53EF53821813806003E146F /* DotcomError.swift in Sources */,
 				45D1CF4923BACA6500945A36 /* ProductTaxStatus.swift in Sources */,
 				D823D91222377DF300C90817 /* ShipmentTrackingProviderListMapper.swift in Sources */,
