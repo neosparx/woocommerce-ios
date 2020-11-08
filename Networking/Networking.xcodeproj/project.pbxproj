@@ -447,7 +447,9 @@
 		26B2F74824C55ACE0065CCC8 /* LeaderboardsRemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsRemoteTests.swift; sourceTree = "<group>"; };
 		26B2F74A24C696C00065CCC8 /* LeaderboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRow.swift; sourceTree = "<group>"; };
 		26B2F74C24C696E70065CCC8 /* LeaderboardRowContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRowContent.swift; sourceTree = "<group>"; };
+		26E83A012554683A00390DD9 /* GeneratedFakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedFakeable.swift; sourceTree = "<group>"; };
 		26E83A06255469E000390DD9 /* Fakes.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fakes.generated.swift; sourceTree = "<group>"; };
+		26E83A0A25548D8D00390DD9 /* Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fake.swift; sourceTree = "<group>"; };
 		450106842399A7CB00E24722 /* TaxClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxClass.swift; sourceTree = "<group>"; };
 		4501068E2399B19500E24722 /* TaxClassRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxClassRemote.swift; sourceTree = "<group>"; };
 		450106902399B2C800E24722 /* TaxClassListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxClassListMapper.swift; sourceTree = "<group>"; };
@@ -1802,6 +1804,7 @@
 				D87F6151226591E10031A13B /* NullNetwork.swift in Sources */,
 				CE43A8F9229F463000A4FF29 /* ProductDownload.swift in Sources */,
 				B53EF5322180F21C003E146F /* Dictionary+Woo.swift in Sources */,
+				26E83A07255469E000390DD9 /* Fakes.generated.swift in Sources */,
 				24F98C522502E79800F49B68 /* FeatureFlagsRemote.swift in Sources */,
 				74A1D26D21189DFF00931DFA /* SiteVisitStatsMapper.swift in Sources */,
 				D8FBFF2222D5266E006E3336 /* OrderStatsV4Interval.swift in Sources */,
