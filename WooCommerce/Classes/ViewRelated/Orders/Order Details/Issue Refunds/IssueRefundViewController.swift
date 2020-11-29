@@ -1,9 +1,27 @@
 import UIKit
 import Yosemite
 
+protocol IssueRefundViewControllerInputs {
+    /// Updates item at the given index path with the new refund quantity.
+    ///
+    func updateRefundQuantity(quantity: Int, forItemAtIndex index: Int)
+}
+
+protocol IssueRefundViewControllerOutputs {
+    /// Closure invoked when the next button is tapped
+    ///
+    var onNextAction: ((RefundConfirmationViewModel) -> Void)? { get set }
+
+    /// Closure invoked when the the quantity button of an item is tapped.
+    ///
+    var onSelectQuantityAction: ((RefundItemQuantityListSelectorCommand) -> Void)? { get set }
+}
+
+typealias IssueRefundViewControllerProtocol = UIViewController & IssueRefundViewControllerInputs & IssueRefundViewControllerOutputs
+
 /// Screen that allows the user to refund items (products and shipping) of an order
 ///
-final class IssueRefundViewController: UIViewController {
+final class IssueRefundViewController: IssueRefundViewControllerProtocol {
 
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var tableFooterView: UIView!
