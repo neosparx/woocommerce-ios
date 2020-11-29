@@ -17,10 +17,18 @@ final class IssueRefundCoordinatingController: WooNavigationController {
     ///
     private let systemNoticePresenter: NoticePresenter
 
-    init(order: Order, refunds: [Refund], systemNoticePresenter: NoticePresenter = ServiceLocator.noticePresenter) {
+    /// Factory that creates all the required view controllers.
+    ///
+    private let viewControllersFactory: IssueRefundViewControllersFactoryProtocol
+
+    init(order: Order,
+         refunds: [Refund],
+         systemNoticePresenter: NoticePresenter = ServiceLocator.noticePresenter,
+         viewControllersFactory: IssueRefundViewControllersFactoryProtocol = IssueRefundViewControllersFactory()) {
         self.order = order
         self.refunds = refunds
         self.systemNoticePresenter = systemNoticePresenter
+        self.viewControllersFactory = viewControllersFactory
         super.init(nibName: nil, bundle: nil)
         startRefundNavigation()
     }
@@ -36,14 +44,13 @@ private extension IssueRefundCoordinatingController {
     /// Starts navigation with `IssueRefundViewController` as the root view controller.
     ///
     func startRefundNavigation() {
-        let issueRefundViewController = IssueRefundViewController(order: order, refunds: refunds)
+        var issueRefundViewController = viewControllersFactory.makeIssueRefundViewController(order: order, refunds: refunds)
 
         // Select quantity action
         issueRefundViewController.onSelectQuantityAction = { [weak self] command in
             self?.navigateToItemQuantitySelection(using: command) { selectedQuantity in
                 issueRefundViewController.updateRefundQuantity(quantity: selectedQuantity, forItemAtIndex: command.itemIndex)
             }
-
         }
 
         // Next action
