@@ -19,6 +19,19 @@ final class IssueRefundCoordinatingControllerTests: XCTestCase {
         // Then
         XCTAssertTrue(coordinator.topViewController is IssueRefundViewControllerProtocol)
     }
+
+    func test_it_navigates_to_quantity_list_selector_after_firing_quantity_action() {
+        // Given
+        let factory = MockIssueRefundViewControllersFactory()
+        let coordinator = IssueRefundCoordinatingController(order: MockOrders().empty(), refunds: [], viewControllersFactory: factory)
+        let command = RefundItemQuantityListSelectorCommand(maxRefundQuantity: 10, currentQuantity: 0, itemIndex: 5)
+
+        // When
+        factory.issueRefundViewController.onSelectQuantityAction?(command)
+
+        // Then
+        XCTAssertTrue(coordinator.topViewController is ListSelectorViewController<RefundItemQuantityListSelectorCommand, Int, BasicTableViewCell>)
+    }
 }
 
 private final class MockIssueRefundViewControllersFactory: IssueRefundViewControllersFactoryProtocol {
